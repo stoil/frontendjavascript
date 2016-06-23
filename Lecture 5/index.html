@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    var array = [1, 3, 32, 33, 7];
+    array.sort( orderBy );
+    console.log( array.join( ',' ) );
+
+    var secondArray = [1, 3, 32, 33, 7];
+    array.sort( orderBy );
+    console.log( array.join( ',' ) );
+
+    function orderBy( a, b ) {
+        return ( a == b ) ? 0 : ( a < b ) ? 1 : -1;
+    }
+</script>
+</body>
+</html>
