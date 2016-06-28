@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lecture 7 Homework</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        #container {
+            padding-top: 50px;
+            width: 400px;
+            margin: 0 auto;
+            word-break: break-all;
+        }
+        #actionBtn {
+            display: block;
+            width: 5%;
+            margin: 50px auto;
+        }
+        code {
+            text-align: left !important;
+            display: block;
+            width: 400px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<h1>Frontend JavaScript Course</h1>
+<h3>Lecture 7 Homework</h3>
+<h4>Exercise 12</h4>
+<p>Write a function that creates a HTML UL using a template for every HTML LI. The source of the list should be an array of elements. Replace all placeholders marked with –{…}–   with the value of the corresponding property of the object.</p>
+<code>Template:<br/>
+    &lt;div data-type="template" id="list-item"&gt;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;strong&gt;-{name}-&lt;/strong&gt; &lt;span&gt;-{age}-&lt;/span&gt;<br/>
+    &lt;/div&gt;<br/><br/>
+    people = [{name: "Petar",age:  "14"},{name: "Ivan",age:  "24"},{name: "Georgi",age: "34"}];
+</code>
+<div data-type="template" id="list-item" style="visibility: hidden;">
+    <strong>-{name}-</strong> <span>-{age}-</span>
+</div>
+<button id="actionBtn">Generate List</button>
+<section id="container"></section>
+<script type="text/javascript" src="12_exercise.js"></script>
+</body>
+</html>

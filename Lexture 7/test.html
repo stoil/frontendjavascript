@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>JS Bin</title>
+</head>
+<body>
+<p id="result"></p>
+<script>
+    function transformHtml(html) {
+        return html.replace(/<mixcase>(.*?)<\/mixcase>/g, function (group) { return generateRandomCaseString(group); })
+                .replace(/<upcase>(.*?)<\/upcase>/g, function (group) { return group.toUpperCase(); })
+                .replace(/<lowcase>(.*?)<\/lowcase>/g, function (group) { return group.toLowerCase(); })
+                .replace(/<(.*?)>/g, "");
+    }
+
+    function generateRandomCaseString(str) {
+        var generated = "";
+        var randomNumber;
+
+        for (var ch in str) {
+            randomNumber = Math.floor(Math.random() * 2); // generates 0 or 1
+
+            if (randomNumber == 1) generated += str[ch].toUpperCase(); // lower/upper chance is 50/50
+            else generated += str[ch].toLowerCase();
+        }
+
+        return generated;
+    }
+
+    var text = "We are <mixcase>living</mixcase> in a <lowcase>yellow submarine</lowcase>. We <upcase>don't</upcase> have <lowcase>ANYthing</lowcase> else.";
+    document.getElementById( 'result').innerHTML = transformHtml(text);
+</script>
+</body>
+</html>
