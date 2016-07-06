@@ -18,8 +18,16 @@
  * Print result
  */
 
-var sentence = 'Брала мома къпини';
+var string = 'Брала мома къпини в попови градини.';
 
-var wordsArr = sentence.split( ' ' );
-wordsArr.reverse();
-console.log( wordsArr );
+function capitalizeFirstLetter(word) {
+    return word[0].toUpperCase() + word.slice(1);
+}
+
+var lastWordLastChar = string.split('').pop();
+if ( lastWordLastChar == '.' || lastWordLastChar == '!' || lastWordLastChar == '?' || lastWordLastChar == ',' ) {
+    var cleanStr = string.slice(0, string.indexOf(lastWordLastChar)).toLowerCase();
+}
+
+var newString = cleanStr.split(' ').reverse().join(' ') + lastWordLastChar;
+console.log(capitalizeFirstLetter(newString));
