@@ -28,21 +28,9 @@
  */
 
 var offensiveWords = ['менте', 'хикс'];
-var text = 'Какъв хикс дириш тука бе менте ?';
+var text = 'Какъв хикс дириш тука бе менте?';
 
-var textArr = text.split( ' ' ),
-    currentWord = [];
-
-for ( let i = 0; i < offensiveWords.length; ++i  ) {
-    currentWord = '';
-    for ( let j = 0; j < textArr.length; ++j ) {
-        if ( textArr[j] == offensiveWords[i] ) {
-            currentWord = textArr[j].split( '' );
-            for ( let h = 0; h < currentWord.length; ++h ) {
-                currentWord[h] = '*';
-            }
-            textArr[j] = currentWord.join( '' );
-        }
-    }
+for ( let i in offensiveWords ) {
+    text = text.replace( new RegExp( offensiveWords[i], 'gi' ), new Array( offensiveWords[i].length + 1 ).join('*') );
 }
-console.log( textArr.join( ' ' ) );
+console.log(text);

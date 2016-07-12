@@ -9,42 +9,36 @@
 
 "use strict";
 
-/**
- * Declare new variables for:
- * currentCounter - will count the biggest sequence,
- * finalCount - will keep the final best result,
- * finalElement - will keep the element of the biggest sequence,
- * currentIndex - will keep the temp index for the secondary loop
- *
- */
-var arr = [2, 2, 2, 5, 3, 7, 7, 9, 9, 9, 9, 1, 1, 1, 1, 1, 1];
+var arr = [2, 2, 2, 5, 3, 7, 7, 9, 9, 9, 9, 1, 1, 1, 1,1];
 
 var currentCount = 1,
     finalCount = 1,
-    currentElement = 0,
-    finalElement = 0,
-    currentIndex = '';
+    repeatArr = [],
+    allSequences = [];
 
-for ( var i = 0; i < arr.length - 1; ) {
-    currentCount = 1;
-    currentIndex = i;
-    while ( arr[currentIndex] == arr[currentIndex + 1] ) {
+for ( let i = 0; i < arr.length - 1; ++i ) {
+    if ( arr[i] == arr[i + 1] ) {
         currentCount++;
-        currentIndex++;
-        currentElement = arr[i];
+    }else {
+        currentCount = 1;
     }
-    i += currentCount;
-    if ( currentCount>finalCount ) {
+    if ( currentCount > finalCount ) {
         finalCount = currentCount;
-        finalElement = currentElement;
+        repeatArr = [];
+    }
+    if ( currentCount == finalCount ) {
+        repeatArr.push(arr[i]);
     }
 }
-if ( finalCount == 1 ) {
-    console.log( "The longest sequence of equal elements in the array is {" + arr[0] + "}" );
-}else {
-    var finalArr = [];
-    for ( let j = 0; j < finalCount; j++ ) {
-       finalArr.push( finalElement );
+for ( let i = 0; i < repeatArr.length; ++i ) {
+    let currentSequence = [];
+    for ( let j = 0; j < finalCount; ++j ) {
+        currentSequence.push(repeatArr[i]); 
     }
-    console.log( "The longest sequence of equal elements in the array is {" + finalArr.join() + "}" );
+    allSequences.push('{' + currentSequence.join() + '}'); // ["1,1,1,1"]
+}
+if ( allSequences.length == 1 ) {
+    console.log( "The longest sequence of equal elements in the array is: " + allSequences.join() );
+}else {
+    console.log( "The longest sequences of equal elements in the array are " + allSequences.join(' ') );
 }
