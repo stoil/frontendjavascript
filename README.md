@@ -1,2 +1,2 @@
-# frontendjavascript
+# Frontend JavaScript
 Frontend JavaScript Course
