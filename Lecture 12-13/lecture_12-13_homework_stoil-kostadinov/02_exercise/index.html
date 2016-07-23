@@ -7,31 +7,31 @@
     </head>
     <body>
         <div class="container">
-            <form class="register-form" action="#" method="post">
+            <form id="registerForm" novalidate action="success.html" method="post">
                 <div class="input-group" id="nameBox">
                     <label for="name">First Name</label>
                     <input type="text" name="name" id="name" placeholder="Your Name" required="required">
-                    <span class="message"></span>
+                    <span class="error-message">The name field should contain only characters and cannot start with space!</span>
                 </div>
                 <div class="input-group" id="userNameBox">
-                    <label for="userName">Last Name</label>
+                    <label for="userName">User Name</label>
                     <input type="text" name="userName" id="userName" placeholder="User Name" required="required">
-                    <span class="message"></span>
+                    <span class="error-message">The username field can contain only alphanumeric characters "A-za-z0-9".</span>
                 </div>
                 <div class="input-group" id="emailBox">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="Your Email" required="required">
-                    <span class="message"></span>
+                    <span class="error-message">Please enter a valid email address!</span>
                 </div>
                 <div class="input-group" id="passwordBox">
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" placeholder="Password" required="required">
-                    <span class="message"></span>
+                    <span class="error-message">The password should be at least 8 characters long!</span>
                 </div>
                 <div class="input-group" id="password2Box">
                     <label for="password2">Confirm Password</label>
                     <input type="password" name="password2" id="password2" placeholder="Confirm Password" required="required">
-                    <span class="message"></span>
+                    <span class="error-message">The password should be at least 8 characters long and passwords must match!</span>
                 </div>
                 <div class="input-group" id="submitBox">
                     <input type="submit" id="submit" name="submit" value="Sign Up">
